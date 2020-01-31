@@ -97,6 +97,7 @@ df['Last Update'] = date_list
 # Replace spaces with zeros
 df['Deaths'] = df["Deaths"].apply(lambda x: 0 if x=="" else x)
 df['Recovered'] = df["Recovered"].apply(lambda x: 0 if x=="" else x)
+df['Province/State'] = df["Province/State"].apply(lambda x: 'None' if x=="" else x)
 
 # Data type conversion
 df['Last Update'] = pd.to_datetime(df['Last Update'])
