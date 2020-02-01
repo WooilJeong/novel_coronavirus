@@ -49,7 +49,7 @@ col_list=[
 Jan28_11pm['Last Update']='1/28/2020 23:00'
 Jan25_10pm['Last Update']='1/25/2020 10:00 PM'
 Jan24_12pm['Last Update']='1/24/2020 12:00 PM'
-
+Jan31_2pm['Last Update']='1/31/2020 14:00'
 
 
 df = pd.DataFrame()
@@ -95,6 +95,7 @@ df['Last Update'] = date_list
 
 
 # Replace spaces with zeros
+df['Confirmed'] = df["Confirmed"].apply(lambda x: 0 if x=="" else x)
 df['Deaths'] = df["Deaths"].apply(lambda x: 0 if x=="" else x)
 df['Recovered'] = df["Recovered"].apply(lambda x: 0 if x=="" else x)
 df['Province/State'] = df["Province/State"].apply(lambda x: 'None' if x=="" else x)
@@ -109,10 +110,15 @@ df['Recovered'] = pd.to_numeric(df['Recovered'])
 df['D/C'] = (df['Deaths']/df['Confirmed'])*100
 df['R/C'] = (df['Recovered']/df['Confirmed'])*100
 
+df = df.fillna(0)
 
+# Mac
+# now = datetime.datetime.now()
+# now = str(now)[:16]
+# now = now.replace('-','_')
 
-now = datetime.datetime.now()
-now = str(now)[:16]
-now = now.replace('-','_')
+# df.to_csv('Data/Dataset_'+now+'.csv',index=False,encoding='utf-8')
 
-df.to_csv('Data/Dataset_'+now+'.csv',index=False,encoding='utf-8')
+# Win
+
+df.to_csv('Data/Dataset.csv', index=False, encoding='utf-8')
