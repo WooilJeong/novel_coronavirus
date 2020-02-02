@@ -46,11 +46,12 @@ col_list=[
          ]
 
 
+Feb01_6pm['Last Update']='2/1/2020 18:00'
+
+Jan31_2pm['Last Update']='1/31/2020 14:00'
 Jan28_11pm['Last Update']='1/28/2020 23:00'
 Jan25_10pm['Last Update']='1/25/2020 10:00 PM'
 Jan24_12pm['Last Update']='1/24/2020 12:00 PM'
-Jan31_2pm['Last Update']='1/31/2020 14:00'
-
 
 df = pd.DataFrame()
 for i in sheet_nm:
