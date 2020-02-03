@@ -1,7 +1,11 @@
-## Reference
+## 2020-nCoV Global Cases by Wooil Jeong
+
+![PNG](imgs/01_readme.PNG)
+![PNG](imgs/02_readme.PNG)
+
 
 - Wooil Jeong  
-[Dashboard](https://plot.ly/dashboard/coronavirus:34/present#/)  
+[2020-nCoV Global Cases by Wooil Jeong](https://plot.ly/dashboard/coronavirus:34/present#/)  
 [Blog](https://wooiljeong.github.io/etc/corona_dash/)  
 [Github Repository](https://github.com/WooilJeong/novel_coronavirus)  
 
