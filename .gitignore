@@ -133,3 +133,9 @@ dmypy.json
 
 # csv
 *.csv
+
+# mapbox token
+.mapbox_token
+
+# plotly api key
+.plotly_key
