@@ -55,7 +55,7 @@ fig = px.scatter_mapbox(df,
                         zoom=4)
 
 fig.update_layout(showlegend=False)
-py.plot(fig, filename='corona_scatter')
+py.iplot(fig, filename='corona_scatter')
 
 print("World New Coronavirus Chart Complete")
 
@@ -69,7 +69,7 @@ fig2= px.line(data_melt, x="Last Update", y="value", color='variable', template=
 fig.update_traces(textposition='top center')
 fig.update_layout(legend_orientation="h")
 
-py.plot(fig, filename='corona_confirmed')
+py.iplot(fig, filename='corona_confirmed')
 
 print("Total Confirmed Complete")
 
@@ -77,7 +77,7 @@ print("Total Confirmed Complete")
 fig2.update_traces(textposition='top center')
 fig2.update_layout(legend_orientation="h")
 
-py.plot(fig2, filename='corona_death_recovered')
+py.iplot(fig2, filename='corona_death_recovered')
 
 print("Total Death and Recovered Complete")
 
@@ -161,7 +161,7 @@ fig = px.scatter(Mainland_China,
                              Recovered = 'Recovered'))
 
 fig.update_layout(showlegend=False)
-py.plot(fig, filename='corona')
+py.iplot(fig, filename='corona')
 
 print("Chinese New Coronavirus Chart Complete")
 
@@ -196,7 +196,7 @@ fig=px.line(data_melt,
             template='plotly_dark')
 
 fig.update_layout(showlegend=False)
-py.plot(fig, filename='corona_world')
+py.iplot(fig, filename='corona_world')
 
 print("Number of virus confirmed by country Complete")
 
@@ -211,7 +211,7 @@ fig=px.line(data_melt,
             template='plotly_dark')
 
 fig.update_layout(showlegend=False)
-py.plot(fig, filename='corona_china')
+py.iplot(fig, filename='corona_china')
 
 print("Number of virus confirmed (China) Complete")
 
@@ -226,7 +226,7 @@ fig=px.line(data_melt,
             template='plotly_dark'
            )
 fig.update_layout(showlegend=False)
-py.plot(fig, filename='corona_china_without_hubei')
+py.iplot(fig, filename='corona_china_without_hubei')
 
 print("Number of virus confirmed (China without Hubei) Complete")
 
@@ -241,7 +241,7 @@ fig=px.line(data_melt,
             template='plotly_dark'
            )
 fig.update_layout(showlegend=False)
-py.plot(fig, filename='corona_us')
+py.iplot(fig, filename='corona_us')
 
 print("Number of virus confirmed (US) Complete")
 
@@ -256,7 +256,7 @@ fig=px.line(data_melt,
             template='plotly_dark'
            )
 fig.update_layout(showlegend=False)
-py.plot(fig, filename='corona_australia')
+py.iplot(fig, filename='corona_australia')
 
 print("Number of virus confirmed (Australia) Complete")
 
@@ -271,7 +271,7 @@ fig=px.line(data_melt,
             template='plotly_dark'
            )
 fig.update_layout(showlegend=False)
-py.plot(fig, filename='corona_canada')
+py.iplot(fig, filename='corona_canada')
 
 print("Number of virus confirmed (Canada) Complete")
 
