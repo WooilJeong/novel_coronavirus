@@ -5,16 +5,21 @@ from oauth2client.service_account import ServiceAccountCredentials
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import datetime
-import os
 
-scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+
+scope = [
+'https://spreadsheets.google.com/feeds',
+'https://www.googleapis.com/auth/drive',
+]
+
 json_file_name = 'gspread-266617-7512230df225.json'
 credentials = ServiceAccountCredentials.from_json_keyfile_name(json_file_name, scope)
 
 gc = gspread.authorize(credentials)
 spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1UF2pSkFTURko2OvfHWWlFpDFAr1UxCBA4JLwlSP6KFo/htmlview?usp=sharing&sle=true#'
 doc = gc.open_by_url(spreadsheet_url)
+
+
 
 sheet_list = doc.worksheets()
 sheet_nm = []
@@ -23,6 +28,8 @@ for i in sheet_list:
 
 print('sheets number :', len(sheet_list))
 print(sheet_nm)
+
+
 
 df_list = []
 for i in sheet_nm:
@@ -35,6 +42,8 @@ for i in sheet_nm:
     df_list.append(globals()[i])
 
 
+
+import pandas as pd
 id_vars=['Province/State',
          'Country/Region',
          'Lat',
@@ -51,6 +60,10 @@ for i in sheet_nm:
 
 df = pd.merge(df_Confirmed, df_Death, how='left')
 df = pd.merge(df, df_Recovered, how='left')
+
+
+
+import datetime
 
 date_list=[]
 for i in df['Last Update']:
@@ -73,6 +86,9 @@ for i in df['Last Update']:
     date_list.append(b)
 
 df['Last Update'] = date_list
+
+
+
 
 # Replace spaces with zeros
 df['Province/State'] = df["Province/State"].apply(lambda x: 'None' if x=="" else x)
@@ -98,11 +114,20 @@ df['R/C'] = (df['Recovered']/df['Confirmed'])*100
 # Fill Na with Zeros
 df = df.fillna(0)
 
+# Sort
 df=df.sort_values('Last Update', ascending=True)
+
+
+
+
+import os
 
 if not os.path.exists('Data'):
     os.mkdir('Data')
 
-df.to_csv('Data/Dataset.csv',index=False,encoding='utf-8')
+now=datetime.datetime.strftime(datetime.datetime.now(), "%Y%m%d_%H%M")
+save_path = "Data/Dataset_"+now+".csv"
+df.to_csv(save_path, index=False, encoding='utf-8')
+
 
 print(">>> Complete")
